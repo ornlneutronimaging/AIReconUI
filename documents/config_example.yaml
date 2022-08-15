@@ -1,0 +1,64 @@
+DataPath: #Not sure if open to users
+ proj_path_base : "/SNS/SNAP/IPTS-26894/shared/autoreduce/mcp"  # Path where save project data in MCP
+ OB_path_base : "/SNS/SNAP/IPTS-26894/shared/autoreduce/mcp/OB_May2022" # Path where save OB data in MCP
+ result_path : "/SNS/SNAP/IPTS-26894/shared/insitu_recon/output_loopCronTest_10C_Tilt8" # Path where save the output data
+ search_string: "Tilt8deg_CT_GS_loop_10C" #SHOULD BE SAME AS API folder_tag 
+
+log_name : '/SNS/SNAP/IPTS-26894/shared/insitu_recon/logs/reclog_loopcrontest.log' # Not sure
+
+"""OB Parameter (May open to advanced users **NOT SURE)"""
+OB_sub_folder_exists : False  #open beam data path sub-folders
+num_OB_set : 5    #number of open beam datasets
+OB_gain_factor : 1.00   #gain factor for open beam to match the counts of projection data
+""""""
+
+#SNAP API params
+SnapApi: # Need be set at the beginning of measurement to start experiment manually and saved for following code running
+ goni1: 8.0
+ goni2: 0.0
+ folder_tag: 'Tilt8deg_CT_GS_loop_10C' # "IMPORTANT"  same as searching string
+ file_tag: '8degtilt'
+ run_title: 'Tilt CT'
+ run_notes: '8 degree tilts at 10 C'
+ p_charge: 10.0
+
+# Evaluation ROI
+roi_info : [80, 100, 200, 200] # Should be determined by users but need visualization setting after 1st reconstruction
+
+QIthresh: 4.3 # User Setting
+
+WaveOpts: # User setting
+ wav_idx_start : [1230]
+ wav_idx_end : [1271]
+ skip_idx : []
+
+BasicPara:
+ detector_rows : 512 #May from Meta data, open to advanced users
+ detector_columns : 512 #May from Meta data, open to advanced users
+ z_start : 150 #User setting
+ z_numSlice : 250 #User setting
+ cut_cols : 400 #User setting
+
+align_paras: # Hide to users
+ x_off : 2
+ y_off : 2
+ cent_x : 256
+ cent_y: 256
+ unused_pix_num : 1
+ neighbor_pix_num : 3
+
+# reconstruction prameters
+RecOpts: # Hide to users
+ rot_center: 254.25
+ T : 2.0
+ p : 1.2
+ sharpness : 0.0
+ snr_db : 30.0
+ max_iterations : 200
+ num_threads : 120
+
+Max_ang_num: 55 #Hide
+
+FreqStop: 3 # Hide
+
+SumMode : 0 # hide to user
